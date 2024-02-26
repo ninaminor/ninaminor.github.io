@@ -1,0 +1,486 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color:white;
+}
+
+
+.farg {
+    background-color: cadetblue;
+    height: 300px;
+    padding-top: 100px;
+}
+
+.kontakt {
+    float: left;
+}
+
+.gap {
+ padding-top: 80px ;
+}
+
+
+.rubrik {
+    position: center;
+    text-align: center;
+    color:black;
+}
+
+
+nav {
+    background: black;
+    height: 80px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    opacity: 0.4;
+}
+
+nav img{
+    height: 80px;
+    position: absolute;
+    /*top: 10px;*/
+    left: 20px;
+}
+
+nav ul{
+    float: right;
+    margin-right: 25px;
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 15px;
+}
+
+nav ul li a{
+    position: relative;
+    color: white;
+    font-size: 15px;
+    padding: 5px 0;
+    text-transform: uppercase;
+}
+
+nav ul li a:before{
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: orangered;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .4s linear;
+}   
+
+nav ul li a:hover:before{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+@media (max-width: 1118px) {
+    nav img {
+        left: 8%;
+        }
+}
+
+
+@media (max-width: 994px) {
+    nav img {
+        left: 6%;
+        top: 20px;
+        width: 130px;
+    }
+
+    nav ul li a{
+    font-size: 17px;  /*Kolla rimlig ändring i font size.*/
+    }
+}
+
+/*
+
+@media (max-width: 860px) {
+    label btn{            
+        display: block;
+    }
+
+
+    /*
+ul{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: lightslategrey;
+    top: 80px;
+    left: 0;
+    text-align: center;
+}
+
+
+nav ul li{
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+}
+
+
+nav ul li a{
+    font-size: 20px;
+}
+
+*/
+
+
+.nav ul {
+    right: -450px;
+    display: none;
+}
+
+
+nav ul li {
+    right: -450px;
+    display: none;
+
+}
+
+
+
+
+
+
+.ikon {
+    height: 50px;
+    width: 50px;
+    top: 50%;
+    right: 50%;
+   /* margin-left: auto; */
+   right: 10px;  /*egen*/
+    position:absolute;
+    z-index: 8;
+    cursor: pointer;
+}
+
+.ikon span{
+    height: 5px;
+    width: 50px;
+    background-color: white;
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+
+}
+
+.ikon span:nth-child(1) {
+    top: 25%;
+}
+
+.ikon span:nth-child(3) {
+    top: 75%;
+}
+
+
+.ikon.active span:nth-child(1){
+    top:50%;
+}
+
+.ikon.active span:nth-child(2){
+    opacity:0;
+}
+
+.ikon.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, 50%) rotate(-45deg);
+}
+
+
+.meny {
+    background-color:black;
+    height: 100vh;
+    width: 100%;
+    max-width: 450px;
+    position: fixed;
+    top: 0;
+    left: -450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    transition: .3s ease;
+}
+
+.meny.active{
+    left:0;
+}
+
+
+
+}
+
+
+.intro {
+    width: 100%;
+    height: 150px;
+    background-color:slategray;
+    padding-top: 100px;
+    padding-left: 80px;
+}
+
+
+
+
+.footer {
+    background-color: black;
+    color: white;
+    /*position: fixed;*/
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    padding: 14px;
+}
+
+/*  av någon anledning gör att man kan köra ut i kanterna alltså att studsar ut
+main {
+    margin-top: 100px;
+    margin-bottom: 75px;
+}
+*/
+
+.container {
+    width: 100%;
+    min height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    /* padding: 50px 8%; */
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+
+.bilder {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 30px;
+    column-count: 3;
+
+}
+
+.bilder img {
+    width: 100%;
+}
+
+.bilder .bild:hover img {
+    opacity: .5;
+  }
+
+
+
+
+.lightbox {
+    position: fixed;
+    max-width: 700px;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background: red;
+    padding: 0 5px 5px 5px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 15px rgb(0,0,0,0.2);
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+.lightbox.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 0.3s ease;
+}
+
+.lightbox .detaljer {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px 12px 10px;
+    justify-content: right;
+}
+
+
+.bildbox .detaljer .p {
+    color:blue;
+    cursor: pointer;
+    font-size: 20px;
+
+}
+
+
+.lightbox .bildbox {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 12px 15px 12px 10px;
+    justify-content: space-between;
+}
+
+.bildbox .slide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    width: 60%;
+    height: 50%;
+    line-height: 50px;
+    text-align: center;
+}
+
+.bildbox .slide.fore{
+    left: 0;
+}
+
+
+
+.bildbox .slide.nasta{
+    right: 0;
+}
+
+
+.lightbox .bildbox img{
+    width: 100%;
+    border-radius: 0 0 3px 3px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.formular {
+    width: 100%;
+    display: flex;
+    position: right;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    background-color:teal;
+    padding-top: 100px;
+    padding-left: 80px;
+}
+
+
+
+
+{
+    background:;
+    display: flex;
+    flex-direction: column;
+    padding: 2vw 4vw;
+}
+
+/*
+
+.hamburger {
+    display: flex;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+    cursor: pointer;
+    background-color: blue;
+}
+
+
+.hamburger input {
+    pointer-events: none;
+    width: 100px;
+    height: 100px;
+    color:chocolate;
+    appearance: none;
+}
+
+
+
+.hamburger:has(input:checked){
+    background-color:chartreuse;
+    position: fixed;
+    height: 400px;
+    weight: 400px;
+    z-index: 3
+}
+
+
+
+
+
+.meny {
+    background-color:blueviolet;
+    height: 100vh;
+    position: fixed;
+    height: 400px;
+    weight: 400px;
+    z-index:4;
+}
+
+
+.hamburger:has(input:checked) + .meny{
+translate: none;
+
+}
+*/
+
+
+
+
+
+
+
+/*
+
+#check:checked ~ ul{
+    left: 0;
+}
+
+#check:checked ~ label #btn
+display: none; 
+}
+
+#check:checked ~ label #cancel
+display: block;
+}
